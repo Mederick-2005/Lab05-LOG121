@@ -1,3 +1,3 @@
 public interface ObservateurVue {
-    // commencer
+    // commencer pour tester
 }
