@@ -1,6 +1,6 @@
 package Vue;
-import Modele.SujetModele;
+import EvenementModele;
 
 public interface ObservateurVue {
-    public void mettreAJour(SujetModele sujet);
+    public void mettreAJour(e: EvenementModele);
 }
