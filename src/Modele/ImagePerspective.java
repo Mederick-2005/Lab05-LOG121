@@ -2,9 +2,11 @@ package Modele;
 
 import controleur.memento.MementoImage;
 
+import java.io.File;
+
 public class ImagePerspective extends SujetModele implements Image{
 
-    private Image image;
+    private File image;
     private double zoom;
     private double deplacementX;
     private double deplacementY;
@@ -45,7 +47,7 @@ public class ImagePerspective extends SujetModele implements Image{
     }
 
     @Override
-    public Image getImage() {
+    public File getImage() {
         return null;
     }
 }

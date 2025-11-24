@@ -2,9 +2,11 @@ package Modele;
 
 import controleur.memento.MementoImage;
 
+import java.io.File;
+
 public class ImagePrincipale extends SujetModele implements Image{
 
-    private Image image;
+    private File image;
     private double zoom;
     private double deplacementX;
     private double deplacementY;
@@ -16,14 +18,10 @@ public class ImagePrincipale extends SujetModele implements Image{
         this.deplacementY = 0;
     }
 
-    public void chargerImage(){
-
+    public void chargerImage(File file){
+        this.image = file;
     }
 
-    public MementoImage creerMemento(){
-
-        return null;
-    }
 
     public void restaurer(MementoImage memento){
 
@@ -45,8 +43,8 @@ public class ImagePrincipale extends SujetModele implements Image{
     }
 
     @Override
-    public Image getImage() {
-        return null;
+    public File getImage() {
+        return image;
     }
 
     protected void notifierObservateur(EvenementModele e){
