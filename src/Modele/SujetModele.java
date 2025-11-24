@@ -15,10 +15,6 @@ public abstract class SujetModele {
         observateurs.remove(observateur);
     }
 
-    private void notifierObservateur(){
-        for (ObservateurVue observateur : observateurs) {
-            observateur.mettreAJour(this);
-        }
-    }
+    protected abstract void notifierObservateur();
 
 }

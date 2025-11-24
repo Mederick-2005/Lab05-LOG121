@@ -48,4 +48,8 @@ public class ImagePrincipale extends SujetModele implements Image{
     public Image getImage() {
         return null;
     }
+
+    protected void notifierObservateur(EvenementModele e){
+
+    }
 }
