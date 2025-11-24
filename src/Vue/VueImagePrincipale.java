@@ -1,5 +1,6 @@
 package Vue;
 
+import Modele.ImagePrincipale;
 import Modele.SujetModele;
 
 public class VueImagePrincipale implements ObservateurVue {
