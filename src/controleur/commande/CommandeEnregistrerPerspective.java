@@ -11,15 +11,15 @@ import java.io.*;
 
 public class CommandeEnregistrerPerspective extends CommandeModele {
 
-    private ImagePrincipale modelePrincipal;
-    private ImagePerspective modeleP1;
-    private ImagePerspective modeleP2;
+    private ImagePrincipale imagePrincipale;
+    private ImagePerspective imagePerspective1;
+    private ImagePerspective imagePerspective2;
     private String cheminFichier;
 
     public CommandeEnregistrerPerspective(ImagePrincipale princ, ImagePerspective p1, ImagePerspective p2, String chemin) {
-        this.modelePrincipal = princ;
-        this.modeleP1 = p1;
-        this.modeleP2 = p2;
+        this.imagePrincipale = princ;
+        this.imagePerspective1 = p1;
+        this.imagePerspective2 = p2;
         this.cheminFichier = chemin;
     }
 
@@ -29,7 +29,7 @@ public class CommandeEnregistrerPerspective extends CommandeModele {
             try {
 
                 byte[] imageEnOctets = null;
-                BufferedImage imageSwing = (BufferedImage) modelePrincipal.getImage();
+                BufferedImage imageSwing = (BufferedImage) imagePrincipale.getImage();
 
                 if (imageSwing != null) {
                     ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
@@ -43,13 +43,13 @@ public class CommandeEnregistrerPerspective extends CommandeModele {
 
                     objetSortie.writeObject(imageEnOctets);
 
-                    objetSortie.writeDouble(modeleP1.getZoom());
-                    objetSortie.writeDouble(modeleP1.getDeplacementX());
-                    objetSortie.writeDouble(modeleP1.getDeplacementY());
+                    objetSortie.writeDouble(imagePerspective1.getZoom());
+                    objetSortie.writeDouble(imagePerspective1.getDeplacementX());
+                    objetSortie.writeDouble(imagePerspective1.getDeplacementY());
 
-                    objetSortie.writeDouble(modeleP2.getZoom());
-                    objetSortie.writeDouble(modeleP2.getDeplacementX());
-                    objetSortie.writeDouble(modeleP2.getDeplacementY());
+                    objetSortie.writeDouble(imagePerspective2.getZoom());
+                    objetSortie.writeDouble(imagePerspective2.getDeplacementX());
+                    objetSortie.writeDouble(imagePerspective2.getDeplacementY());
 
                     System.out.println("Sauvegarde réussie : " + cheminFichier);
                 }

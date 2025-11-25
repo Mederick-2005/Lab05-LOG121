@@ -4,8 +4,10 @@ import Modele.ImagePerspective;
 import Modele.ImagePrincipale;
 import Vue.VueEntiere;
 import controleur.commande.CommandeChargerImage;
+import controleur.commande.CommandeEnregistrerPerspective;
 
 import javax.swing.*;
+import java.io.File;
 
 public class controleurInterface implements ObservateurControleurInterface {
 
@@ -34,7 +36,8 @@ public class controleurInterface implements ObservateurControleurInterface {
                 break;
 
             case "Sauvegarder":
-                //sauvegarderPerspective();
+                String cheminProjet = System.getProperty("user.dir") + File.separator + "sauvegarde.ser";
+                new CommandeEnregistrerPerspective(modelePrincipale, modelePerspective1, modelePerspective2, cheminProjet).executer();
                 break;
 
             case "Défaire":
