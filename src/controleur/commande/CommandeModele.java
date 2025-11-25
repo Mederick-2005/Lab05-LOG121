@@ -1,8 +1,14 @@
 package controleur.commande;
 
-public abstract class CommandeModele {
+import Modele.ImagePerspective;
 
-    protected Image
-    protected abstract void executer();
+import java.awt.*;
 
+public abstract class CommandeModele { ;
+
+    public CommandeModele() {}
+
+    public abstract void executer();
+
+    public abstract void annuler();
 }
