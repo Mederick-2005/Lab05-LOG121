@@ -1,12 +1,22 @@
 package controleur.commande;
 
-import Modele.ImagePerspective;
+import controleur.controleurInterface;
 
-import java.awt.*;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class CommandeChargerImage {
-    public CommandeChargerImage(File fichier, Image ancienneImage) {}
+    public CommandeChargerImage() {
+        JFileChooser chooser = new JFileChooser();
+        int resultat = chooser.showOpenDialog(null);
+
+        if(resultat == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            controleurInterface.getModelePrincipale().chargerImage(file);
+        }
+    }
     public void executer(){}
     public void annuler(){}
 }

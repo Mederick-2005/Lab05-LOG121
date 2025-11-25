@@ -1,5 +1,7 @@
 import Modele.*;
 import Vue.*;
+import controleur.controleurInterface;
+
 import javax.swing.*;
 
 public class Application {
@@ -13,7 +15,7 @@ public class Application {
         fenetre.setSize(1000, 600);
 
         VueEntiere vueEntiere = new VueEntiere();
-        vueEntiere.repaint();
+        controleurInterface controleur = new controleurInterface(vueEntiere,imgPrinc,imgPersp1,imgPersp2);
 
         fenetre.setContentPane(vueEntiere);
         fenetre.setVisible(true);
