@@ -1,6 +1,9 @@
 package Vue;
 
 import Modele.EvenementModele;
+import Modele.ImagePerspective;
+import Modele.ImagePrincipale;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,13 +18,13 @@ public class VueEntiere extends SujetVueInterface implements ObservateurVue {
     private VueImagePerspective vueImagePerspective1;
     private VueImagePerspective vueImagePerspective2;
 
-    public VueEntiere() {
+    public VueEntiere(ImagePrincipale imgPrinc, ImagePerspective imgPersp1, ImagePerspective imgPersp2) {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        vueImagePrincipale = new VueImagePrincipale();
-        vueImagePerspective1 = new VueImagePerspective();
-        vueImagePerspective2 = new VueImagePerspective();
+        vueImagePrincipale = new VueImagePrincipale(imgPrinc);
+        vueImagePerspective1 = new VueImagePerspective(imgPersp1);
+        vueImagePerspective2 = new VueImagePerspective(imgPersp2);
 
         vueImagePrincipale.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         vueImagePerspective1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
