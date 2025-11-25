@@ -21,6 +21,10 @@ public class ImagePrincipale extends SujetModele implements Image{
         this.deplacementY = 0;
     }
 
+    /**
+     * Permet de charger une image
+     * @param file fichier contenant l'image
+     */
     public void chargerImage(File file){
         try{
             this.image = ImageIO.read(file);

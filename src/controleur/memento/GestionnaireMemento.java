@@ -13,6 +13,10 @@ public class GestionnaireMemento {
     private GestionnaireMemento() {
     }
 
+    /**
+     * Permet d'obtenir l'instance du singleton gestionnaire de memento
+     * @return l'instance du GestionnaireMemento
+     */
     public static GestionnaireMemento getInstance() {
         if (instance == null) {
             instance = new GestionnaireMemento();
@@ -20,12 +24,19 @@ public class GestionnaireMemento {
         return instance;
     }
 
+    /**
+     * Redonne l'état de la dernière sauvegarde de l'historique à la perspective concernée
+     */
     public void refaire(){
         MementoImage dernierMemento = historique.pop();
         ImagePerspective dernierImage = dernierMemento.getImageSource();
         dernierImage.restaurerMemento(dernierMemento);
     }
 
+    /**
+     * Ajoute un memento (sauvegarde) à l'historique
+     * @param m memento à ajouter
+     */
     public void ajouterHistorique(MementoImage m){
         historique.push(m);
     }
