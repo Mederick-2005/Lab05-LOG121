@@ -97,5 +97,8 @@ public class ImagePerspective extends SujetModele implements Image{
         return image;
     }
 
-    public void setImage(java.awt.Image image) {this.image = image;}
+    public void setImage(java.awt.Image image) {
+        this.image = image;
+        notifierObservateur(new EvenementModele(TypeEvenement.CHARGER));
+    }
 }
