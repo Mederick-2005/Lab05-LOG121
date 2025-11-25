@@ -43,8 +43,8 @@ public abstract class SujetVueImage extends JPanel {
     /**
      * Notifie l'observateur des images qu'il y a eu un mouvement sur les images.
      * @param sujet la vue sur lequel il y a eu un mouvement
-     * @param mouvementX
-     * @param mouvementY
+     * @param mouvementX mouvement horizontal
+     * @param mouvementY mouvement vertical
      */
     protected void notifierMouvement(SujetVueImage sujet, double mouvementX, double mouvementY) {
         for (ObservateurControleurImage o : observateurs) {
@@ -52,6 +52,10 @@ public abstract class SujetVueImage extends JPanel {
         }
     }
 
+    /**
+     * Notifie l'observateur des images qu'il y a eu un zoom sur l'image
+     * @param rotationMolette degré de rotation de la molette
+     */
     protected void notifierZoom(double rotationMolette) {
         for (ObservateurControleurImage o : observateurs) {
             o.reactionZoom(rotationMolette);
