@@ -4,6 +4,7 @@ import Modele.ImagePerspective;
 import Modele.ImagePrincipale;
 import Vue.VueEntiere;
 import controleur.commande.CommandeChargerImage;
+import controleur.commande.CommandeChargerPerspective;
 import controleur.commande.CommandeEnregistrerPerspective;
 
 import javax.swing.*;
@@ -56,7 +57,14 @@ public class controleurInterface implements ObservateurControleurInterface {
                 break;
 
             case "Charger Perspective":
-                //chargerPerspective();
+                String cheminChargement = System.getProperty("user.dir") + File.separator + "sauvegarde.ser";
+                File fichierALire = new File(cheminChargement);
+
+                if (fichierALire.exists()) {
+                    new CommandeChargerPerspective(fichierALire, modelePrincipale, modelePerspective1, modelePerspective2).executer();
+                } else {
+                    System.out.println("Aucun fichier de sauvegarde trouvé à cet emplacement.");
+                }
                 break;
         }
 

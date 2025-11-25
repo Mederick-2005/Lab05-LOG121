@@ -58,4 +58,6 @@ public class ImagePrincipale extends SujetModele implements Image{
     public java.awt.Image getImage() {
         return image;
     }
+
+    public void setImage(java.awt.Image image) {this.image = image;}
 }
