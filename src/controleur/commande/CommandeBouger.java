@@ -1,7 +1,7 @@
 package controleur.commande;
 import Modele.ImagePerspective;
 
-public class CommandeBouger {
+public class CommandeBouger extends CommandeModele{
 
     public CommandeBouger(double ValeurX, double ValeurY, ImagePerspective imageSelec) {}
     public void executer(){}

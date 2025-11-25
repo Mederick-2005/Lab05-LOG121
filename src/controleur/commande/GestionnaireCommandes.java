@@ -3,12 +3,12 @@ package controleur.commande;
 import java.util.Stack;
 
 public class GestionnaireCommandes {
-    private GestionnaireCommandes instance;
+    private static GestionnaireCommandes instance;
     private Stack<CommandeModele> historique = new Stack<>();
 
     private GestionnaireCommandes() {}
 
-    public GestionnaireCommandes getInstance() {
+    public static GestionnaireCommandes getInstance() {
         if (instance == null) {
             instance = new GestionnaireCommandes();
         }

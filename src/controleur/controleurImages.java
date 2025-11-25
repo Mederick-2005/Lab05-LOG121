@@ -4,6 +4,10 @@ import Modele.ImagePerspective;
 import Modele.ImagePrincipale;
 import Vue.SujetVueImage;
 import Vue.VueImagePerspective;
+import controleur.commande.CommandeBouger;
+import controleur.commande.CommandeModele;
+import controleur.commande.CommandeZoom;
+import controleur.commande.GestionnaireCommandes;
 
 public class controleurImages implements ObservateurControleurImage{
     private ImagePrincipale modelePrincipale;
@@ -31,11 +35,22 @@ public class controleurImages implements ObservateurControleurImage{
 
     @Override
     public void reactionMouvement(SujetVueImage sujet, double mouvementX, double mouvementY){
+        if (sujet instanceof VueImagePerspective) {
+            ImagePerspective modele = ((VueImagePerspective) sujet).getModele();
+            CommandeModele commande = new CommandeBouger(mouvementX, mouvementY, modele);
+            commande.executer();
 
+            GestionnaireCommandes instanceGestionnaire = GestionnaireCommandes.getInstance();
+            instanceGestionnaire.ajouterHistorique(commande);
+        }
     }
 
     @Override
     public void reactionZoom(double rotationMolette){
+        CommandeModele commande = new CommandeZoom(rotationMolette, imageSelec);
+        commande.executer();
 
+        GestionnaireCommandes instanceGestionnaire = GestionnaireCommandes.getInstance();
+        instanceGestionnaire.ajouterHistorique(commande);
     }
 }

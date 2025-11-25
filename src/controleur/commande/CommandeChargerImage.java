@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-public class CommandeChargerImage {
+public class CommandeChargerImage extends CommandeModele{
     public CommandeChargerImage() {
         JFileChooser chooser = new JFileChooser();
         int resultat = chooser.showOpenDialog(null);

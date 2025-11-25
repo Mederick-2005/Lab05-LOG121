@@ -2,7 +2,7 @@ package controleur.commande;
 
 import java.io.File;
 
-public class CommandeChargerPerspective {
+public class CommandeChargerPerspective extends CommandeModele{
 
     private File fichier;
 
@@ -14,4 +14,5 @@ public class CommandeChargerPerspective {
     public void executer() {
 
     }
+    public void annuler(){}
 }
