@@ -8,12 +8,42 @@ import java.awt.*;
 public class VueImagePerspective extends SujetVueImage implements ObservateurVue{
 
     private ImagePerspective modele;
+    private double dernierX, dernierY;
 
     public VueImagePerspective() {
         this.modele = new ImagePerspective();
         this.modele.ajouterObservateur(this);
-
         setBackground(new Color(240, 240, 240));
+
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                notifierClic(VueImagePerspective.this);
+            }
+
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                dernierX = evt.getX();
+                dernierY = evt.getY();
+            }
+        });
+
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+           @Override
+           public void mouseDragged(java.awt.event.MouseEvent evt) {
+               double dx  = evt.getX() - dernierX;
+               double dy  = evt.getY() - dernierY;
+
+               dernierX = evt.getX();
+               dernierY = evt.getY();
+               notifierMouvement(VueImagePerspective.this, dx, dy);
+           }
+        });
+
+        addMouseWheelListener(e ->  {
+             double rotation = e.getWheelRotation();
+            notifierZoom(rotation);
+        });
     }
 
 
@@ -39,5 +69,9 @@ public class VueImagePerspective extends SujetVueImage implements ObservateurVue
     @Override
     public void mettreAJour(EvenementModele e) {
         repaint();
+    }
+
+    public ImagePerspective getModele() {
+        return modele;
     }
 }
