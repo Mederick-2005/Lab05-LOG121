@@ -3,9 +3,8 @@ package controleur;
 import Modele.ImagePerspective;
 import Modele.ImagePrincipale;
 import Vue.VueEntiere;
-import controleur.commande.CommandeChargerImage;
-import controleur.commande.CommandeChargerPerspective;
-import controleur.commande.CommandeEnregistrerPerspective;
+import controleur.commande.*;
+import controleur.memento.GestionnaireMemento;
 
 import javax.swing.*;
 import java.io.File;
@@ -67,6 +66,17 @@ public class controleurInterface implements ObservateurControleurInterface {
                 }
                 break;
         }
+    }
 
+    public void defaire(){
+        GestionnaireCommandes instanceGestComm = GestionnaireCommandes.getInstance();
+        CommandePerspective derniereCommande = instanceGestComm.retirerHistorique();
+        ImagePerspective perspectiveDerCom = derniereCommande.getImageSelec();
+        perspectiveDerCom.creerMemento();
+    }
+
+    public void refaire(){
+        GestionnaireMemento instanceMemento = GestionnaireMemento.getInstance();
+        instanceMemento.refaire();
     }
 }

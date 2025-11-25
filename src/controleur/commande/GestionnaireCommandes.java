@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class GestionnaireCommandes {
     private static GestionnaireCommandes instance;
-    private Stack<CommandeModele> historique = new Stack<>();
+    private Stack<CommandePerspective> historique = new Stack<>(); //Seulement les CommandePerspective sont annulables
 
     private GestionnaireCommandes() {}
 
@@ -15,11 +15,11 @@ public class GestionnaireCommandes {
         return instance;
     }
 
-    public void ajouterHistorique(CommandeModele commande) {
+    public void ajouterHistorique(CommandePerspective commande) {
         historique.push(commande);
     }
 
-    public CommandeModele retirerHistorique(){
+    public CommandePerspective retirerHistorique(){
         return historique.pop();
     }
 }
