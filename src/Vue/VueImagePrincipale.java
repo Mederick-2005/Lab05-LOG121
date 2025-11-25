@@ -4,6 +4,7 @@ import Modele.EvenementModele;
 import Modele.ImagePrincipale;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 
 public class VueImagePrincipale extends JPanel implements ObservateurVue {

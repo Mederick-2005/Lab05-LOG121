@@ -2,10 +2,11 @@ package Modele;
 
 import Vue.ObservateurVue;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class SujetModele {
+public abstract class SujetModele{
     private List<ObservateurVue> observateurs = new ArrayList<>();
 
     /**

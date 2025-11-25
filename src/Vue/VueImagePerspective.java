@@ -5,7 +5,7 @@ import Modele.ImagePerspective;
 import javax.swing.*;
 import java.awt.*;
 
-public class VueImagePerspective extends JPanel implements ObservateurVue{
+public class VueImagePerspective extends SujetVueImage implements ObservateurVue{
 
     private ImagePerspective modele;
 
@@ -15,6 +15,7 @@ public class VueImagePerspective extends JPanel implements ObservateurVue{
 
         setBackground(new Color(240, 240, 240));
     }
+
 
     @Override
     protected void paintComponent(Graphics g) {

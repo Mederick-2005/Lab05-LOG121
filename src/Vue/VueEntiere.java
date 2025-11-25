@@ -4,7 +4,7 @@ import Modele.EvenementModele;
 import javax.swing.*;
 import java.awt.*;
 
-public class VueEntiere extends JPanel implements ObservateurVue {
+public class VueEntiere extends SujetVueInterface implements ObservateurVue {
 
     private JButton btnChargerImage;
     private JButton btnEnregistrerPerspective;
@@ -34,11 +34,29 @@ public class VueEntiere extends JPanel implements ObservateurVue {
         btnEnregistrerPerspective = new JButton("Sauvegarder");
         btnDefaire = new JButton("Défaire");
         btnRefaire = new JButton("Refaire");
+        btnChargerPerspective = new JButton("Charger Perspective");
+
+        btnChargerImage.addActionListener(e -> {
+            notifierClic(btnChargerImage);
+        });
+        btnEnregistrerPerspective.addActionListener(e -> {
+            notifierClic(btnEnregistrerPerspective);
+        });
+        btnDefaire.addActionListener(e -> {
+            notifierClic(btnDefaire);
+        });
+        btnRefaire.addActionListener(e -> {
+            notifierClic(btnRefaire);
+        });
+        btnChargerPerspective.addActionListener(e -> {
+            notifierClic(btnChargerPerspective);
+        });
 
         panelBoutons.add(btnChargerImage);
         panelBoutons.add(btnEnregistrerPerspective);
         panelBoutons.add(btnDefaire);
         panelBoutons.add(btnRefaire);
+        panelBoutons.add(btnChargerPerspective);
 
         add(panelBoutons, BorderLayout.NORTH);
 
@@ -77,6 +95,6 @@ public class VueEntiere extends JPanel implements ObservateurVue {
 
     @Override
     public void mettreAJour(EvenementModele modele) {
-
+        repaint();
     }
 }
