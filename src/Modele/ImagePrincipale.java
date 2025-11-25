@@ -2,14 +2,16 @@ package Modele;
 
 import controleur.memento.MementoImage;
 
+import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 
 public class ImagePrincipale extends SujetModele implements Image{
 
-    private File image;
-    private double zoom;
-    private double deplacementX;
-    private double deplacementY;
+    private java.awt.Image image;
+    private double zoom = 1.0;
+    private double deplacementX = 0.0;
+    private double deplacementY = 0.0;
 
     public ImagePrincipale(){
         //Tout est nul ou 0 lors de la construction car aucune image n'a été chargée
@@ -20,26 +22,36 @@ public class ImagePrincipale extends SujetModele implements Image{
     }
 
     public void chargerImage(File file){
-        this.image = file;
+        try{
+            this.image = ImageIO.read(file);
+            notifierObservateur(new EvenementModele(TypeEvenement.CHARGER));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public void restaurer(MementoImage memento){
+
     }
 
     @Override
     public double getZoom() {
-        return 0;
+        return zoom;
     }
 
     @Override
     public double getDeplacementX() {
-        return 0;
+        return deplacementX;
     }
 
     @Override
     public double getDeplacementY() {
-        return 0;
+        return deplacementY;
     }
 
     @Override
-    public File getImage() {
+    public java.awt.Image getImage() {
         return image;
     }
 }

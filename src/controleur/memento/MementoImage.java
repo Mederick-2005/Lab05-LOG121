@@ -5,13 +5,13 @@ import Modele.ImagePerspective;
 import java.io.File;
 
 public class MementoImage {
-    private File image;
+    private java.awt.Image image;
     private double zoom;
     private double deplacementX;
     private double deplacementY;
     private ImagePerspective imageSource; //perspective sur laquelle la sauvegarde a été faite
 
-    public MementoImage(File image, double zoom, double deplacementX, double deplacementY, ImagePerspective imageSource) {
+    public MementoImage(java.awt.Image image, double zoom, double deplacementX, double deplacementY, ImagePerspective imageSource) {
         this.image = image;
         this.zoom = zoom;
         this.deplacementX = deplacementX;
@@ -19,7 +19,7 @@ public class MementoImage {
         this.imageSource = imageSource;
     }
 
-    public File getImage() {
+    public java.awt.Image getImage() {
         return image;
     }
     public double getZoom() {

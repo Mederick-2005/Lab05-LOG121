@@ -3,14 +3,16 @@ package Modele;
 import controleur.memento.GestionnaireMemento;
 import controleur.memento.MementoImage;
 
+import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 
 public class ImagePerspective extends SujetModele implements Image{
 
-    private File image;
-    private double zoom;
-    private double deplacementX;
-    private double deplacementY;
+    private java.awt.Image image;
+    private double zoom = 1.0;
+    private double deplacementX = 0.0;
+    private double deplacementY = 0.0;
 
     public ImagePerspective(){
         //Tout est nul ou 0 car aucune image n'a été chargé
@@ -25,8 +27,12 @@ public class ImagePerspective extends SujetModele implements Image{
      * @param file fichier contenant l'image
      */
     public void chargerImage(File file){
-        this.image = file;
-        notifierObservateur(new EvenementModele(TypeEvenement.CHARGER));
+        try{
+            this.image = ImageIO.read(file);
+            notifierObservateur(new EvenementModele(TypeEvenement.CHARGER));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -63,7 +69,7 @@ public class ImagePerspective extends SujetModele implements Image{
      * @param memento Memento contenant l'état à restaurer.
      */
     public void restaurerMemento(MementoImage memento){
-        image = memento.getImage();
+        image = memento.getImageSource().getImage();
         zoom = memento.getZoom();
         deplacementX = memento.getDeplacementX();
         deplacementY = memento.getDeplacementY();
@@ -87,7 +93,7 @@ public class ImagePerspective extends SujetModele implements Image{
     }
 
     @Override
-    public File getImage() {
+    public java.awt.Image getImage() {
         return image;
     }
 }
