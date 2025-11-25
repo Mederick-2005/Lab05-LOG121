@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import controleur.ObservateurControleurInterface;
 
-public abstract class SujetVueInterface {
+import javax.swing.*;
+
+public abstract class SujetVueInterface extends JPanel {
 
     protected List<ObservateurControleurInterface> observateurs = new ArrayList<>();
 
@@ -17,7 +19,7 @@ public abstract class SujetVueInterface {
 
     public void retirerObservateur(ObservateurControleurInterface observateur) {observateurs.remove(observateur);}
 
-    protected void notifierClic(Button source) {
+    protected void notifierClic(JButton source) {
         for (ObservateurControleurInterface o : observateurs) {
             o.reactionClicBouton(source);
         }
