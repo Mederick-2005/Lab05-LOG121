@@ -16,7 +16,7 @@ public class ImagePrincipale extends SujetModele implements Image{
     public ImagePrincipale(){
         //Tout est nul ou 0 lors de la construction car aucune image n'a été chargée
         this.image = null;
-        this.zoom = 0;
+        this.zoom = 1.0;
         this.deplacementX = 0;
         this.deplacementY = 0;
     }

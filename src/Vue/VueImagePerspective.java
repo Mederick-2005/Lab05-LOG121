@@ -10,8 +10,8 @@ public class VueImagePerspective extends SujetVueImage implements ObservateurVue
     private ImagePerspective modele;
     private double dernierX, dernierY;
 
-    public VueImagePerspective() {
-        this.modele = new ImagePerspective();
+    public VueImagePerspective(ImagePerspective modele) {
+        this.modele = modele;
         this.modele.ajouterObservateur(this);
         setBackground(new Color(240, 240, 240));
 

@@ -14,7 +14,7 @@ public class Application {
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setSize(1000, 600);
 
-        VueEntiere vueEntiere = new VueEntiere();
+        VueEntiere vueEntiere = new VueEntiere(imgPrinc,imgPersp1,imgPersp2);
         controleurInterface controleur = new controleurInterface(vueEntiere,imgPrinc,imgPersp1,imgPersp2);
 
         fenetre.setContentPane(vueEntiere);
