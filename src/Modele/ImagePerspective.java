@@ -17,7 +17,7 @@ public class ImagePerspective extends SujetModele implements Image{
     public ImagePerspective(){
         //Tout est nul ou 0 car aucune image n'a été chargé
         this.image = null;
-        this.zoom = 0;
+        this.zoom = 1;
         this.deplacementX = 0;
         this.deplacementY = 0;
     }

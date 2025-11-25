@@ -15,6 +15,8 @@ public class CommandeChargerImage {
         if(resultat == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
             controleurInterface.getModelePrincipale().chargerImage(file);
+            controleurInterface.getModelePerspective1().chargerImage(file);
+            controleurInterface.getModelePerspective2().chargerImage(file);
         }
     }
     public void executer(){}
