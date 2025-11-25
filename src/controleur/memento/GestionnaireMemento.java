@@ -25,4 +25,8 @@ public class GestionnaireMemento {
         ImagePerspective dernierImage = dernierMemento.getImageSource();
         dernierImage.restaurerMemento(dernierMemento);
     }
+
+    public void ajouterHistorique(MementoImage m){
+        historique.push(m);
+    }
 }

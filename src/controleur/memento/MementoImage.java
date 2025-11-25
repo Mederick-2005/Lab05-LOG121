@@ -9,7 +9,7 @@ public class MementoImage {
     private double zoom;
     private double deplacementX;
     private double deplacementY;
-    private ImagePerspective imageSource;
+    private ImagePerspective imageSource; //perspective sur laquelle la sauvegarde a été faite
 
     public MementoImage(File image, double zoom, double deplacementX, double deplacementY, ImagePerspective imageSource) {
         this.image = image;

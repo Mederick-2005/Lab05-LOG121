@@ -12,6 +12,7 @@ public class ImagePrincipale extends SujetModele implements Image{
     private double deplacementY;
 
     public ImagePrincipale(){
+        //Tout est nul ou 0 lors de la construction car aucune image n'a été chargée
         this.image = null;
         this.zoom = 0;
         this.deplacementX = 0;
@@ -20,11 +21,6 @@ public class ImagePrincipale extends SujetModele implements Image{
 
     public void chargerImage(File file){
         this.image = file;
-    }
-
-
-    public void restaurer(MementoImage memento){
-
     }
 
     @Override
