@@ -12,8 +12,8 @@ import java.io.File;
 public class controleurInterface implements ObservateurControleurInterface {
 
     private static ImagePrincipale modelePrincipale;
-    private ImagePerspective modelePerspective1;
-    private ImagePerspective modelePerspective2;
+    private static ImagePerspective modelePerspective1;
+    private static ImagePerspective modelePerspective2;
 
     public controleurInterface(VueEntiere vueEntiere,ImagePrincipale imgPrinc,ImagePerspective imgPersp1,ImagePerspective imgPersp2) {
         vueEntiere.ajouterObservateur(this);
@@ -24,6 +24,13 @@ public class controleurInterface implements ObservateurControleurInterface {
 
     public static ImagePrincipale getModelePrincipale() {
         return modelePrincipale;
+    }
+
+    public static ImagePerspective getModelePerspective1() {
+        return modelePerspective1;
+    }
+    public static ImagePerspective getModelePerspective2() {
+        return modelePerspective2;
     }
 
     @Override
