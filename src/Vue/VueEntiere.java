@@ -92,6 +92,16 @@ public class VueEntiere extends SujetVueInterface implements ObservateurVue {
         add(labelFooter, BorderLayout.SOUTH);
     }
 
+    public VueImagePrincipale getVueImagePrincipale() {
+        return vueImagePrincipale;
+    }
+    public VueImagePerspective getVueImagePerspective1() {
+        return vueImagePerspective1;
+    }
+    public VueImagePerspective getVueImagePerspective2() {
+        return vueImagePerspective2;
+    }
+
 
     @Override
     public void mettreAJour(EvenementModele modele) {
