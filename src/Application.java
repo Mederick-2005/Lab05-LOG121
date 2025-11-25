@@ -1,6 +1,6 @@
 import Modele.*;
 import Vue.*;
-import controleur.controleurInterface;
+import controleur.*;
 
 import javax.swing.*;
 
@@ -16,6 +16,7 @@ public class Application {
 
         VueEntiere vueEntiere = new VueEntiere(imgPrinc,imgPersp1,imgPersp2);
         controleurInterface controleur = new controleurInterface(vueEntiere,imgPrinc,imgPersp1,imgPersp2);
+        controleurImages controleurImages = new controleurImages(imgPrinc,imgPersp1,imgPersp2);
 
         fenetre.setContentPane(vueEntiere);
         fenetre.setVisible(true);

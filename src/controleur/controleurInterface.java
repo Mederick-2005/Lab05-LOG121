@@ -48,11 +48,11 @@ public class controleurInterface implements ObservateurControleurInterface {
                 break;
 
             case "Défaire":
-                //defaire();
+                defaire();
                 break;
 
             case "Refaire":
-                //refaire();
+                refaire();
                 break;
 
             case "Charger Perspective":
