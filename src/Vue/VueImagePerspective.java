@@ -70,4 +70,8 @@ public class VueImagePerspective extends SujetVueImage implements ObservateurVue
     public void mettreAJour(EvenementModele e) {
         repaint();
     }
+
+    public ImagePerspective getModele() {
+        return modele;
+    }
 }
