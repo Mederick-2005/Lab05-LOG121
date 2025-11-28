@@ -68,13 +68,23 @@ public class controleurInterface implements ObservateurControleurInterface {
         }
     }
 
+    /**
+     * annule la dernière commande de l'historique du gestionnaire de commande
+     */
     public void defaire(){
+        //On retire la dernière commande du gestionnaire
         GestionnaireCommandes instanceGestComm = GestionnaireCommandes.getInstance();
         CommandePerspective derniereCommande = instanceGestComm.retirerHistorique();
+        //On crée un Memento avant d'annuler la dernière commande (pour pouvoir redo)
         ImagePerspective perspectiveDerCom = derniereCommande.getImageSelec();
         perspectiveDerCom.creerMemento();
+        //On annulle la commande
+        derniereCommande.annuler();
     }
 
+    /**
+     * refait une action défaite en restaurant l'état d'avant le undo
+     */
     public void refaire(){
         GestionnaireMemento instanceMemento = GestionnaireMemento.getInstance();
         instanceMemento.refaire();

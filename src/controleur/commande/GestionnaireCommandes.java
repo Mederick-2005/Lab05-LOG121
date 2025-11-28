@@ -8,6 +8,10 @@ public class GestionnaireCommandes {
 
     private GestionnaireCommandes() {}
 
+    /**
+     * accès à l'instance du gestionnaire de commandes
+     * @return l'instance du gestionnaire
+     */
     public static GestionnaireCommandes getInstance() {
         if (instance == null) {
             instance = new GestionnaireCommandes();
@@ -15,10 +19,18 @@ public class GestionnaireCommandes {
         return instance;
     }
 
+    /**
+     * Ajoute une commande à l'historique
+     * @param commande commande à ajouter
+     */
     public void ajouterHistorique(CommandePerspective commande) {
         historique.push(commande);
     }
 
+    /**
+     * retire la dernière commande de l'historique
+     * @return la commande retirée
+     */
     public CommandePerspective retirerHistorique(){
         return historique.pop();
     }
