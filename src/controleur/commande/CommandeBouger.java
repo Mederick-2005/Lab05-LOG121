@@ -3,12 +3,11 @@ import Modele.ImagePerspective;
 
 public class CommandeBouger extends CommandePerspective{
     private double valeurX, valeurY;
-    private ImagePerspective imageSelec;
 
     public CommandeBouger(double ValeurX, double ValeurY, ImagePerspective imageSelec) {
+        super(imageSelec);
         this.valeurX = ValeurX;
         this.valeurY = ValeurY;
-        this.imageSelec = imageSelec;
     }
 
     /**

@@ -4,11 +4,10 @@ import Modele.ImagePerspective;
 
 public class CommandeZoom extends CommandePerspective{
     private double niveauZoom;
-    private ImagePerspective imageSelec;
 
     public CommandeZoom(double niveauZoom, ImagePerspective imageSelec) {
+        super(imageSelec);
         this.niveauZoom = niveauZoom;
-        this.imageSelec = imageSelec;
     }
 
     /**

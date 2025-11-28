@@ -16,7 +16,10 @@ public class Application {
 
         VueEntiere vueEntiere = new VueEntiere(imgPrinc,imgPersp1,imgPersp2);
         controleurInterface controleur = new controleurInterface(vueEntiere,imgPrinc,imgPersp1,imgPersp2);
+
         controleurImages controleurImages = new controleurImages(imgPrinc,imgPersp1,imgPersp2);
+        vueEntiere.getVueImagePerspective1().ajouterObservateur(controleurImages);
+        vueEntiere.getVueImagePerspective2().ajouterObservateur(controleurImages);
 
         fenetre.setContentPane(vueEntiere);
         fenetre.setVisible(true);
