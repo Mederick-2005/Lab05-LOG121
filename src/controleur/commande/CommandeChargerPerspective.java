@@ -14,6 +14,7 @@ public class CommandeChargerPerspective extends CommandeModele{
     private ImagePerspective imagePerspective1;
     private ImagePerspective imagePerspective2;
 
+    // Constructeur
     public CommandeChargerPerspective(File f, ImagePrincipale ip, ImagePerspective ip1, ImagePerspective ip2) {
         this.fichier = f;
         this.imagePrincipale = ip;
@@ -21,12 +22,15 @@ public class CommandeChargerPerspective extends CommandeModele{
         this.imagePerspective2 = ip2;
     }
 
+    // Création d'un objet FileInputStream pour charger une image et 2 perspective à partire d'un fichier
+    // préalablement créer par la commande charger perspective
     public void executer() {
         try (FileInputStream fichierEntree = new FileInputStream(fichier);
              ObjectInputStream ObjetEntree = new ObjectInputStream(fichierEntree)) {
 
             byte[] imageBytes = (byte[]) ObjetEntree.readObject();
 
+            // Si le fichier existe alors on peut le charger
             if (imageBytes != null) {
 
                 ByteArrayInputStream tableauByte = new ByteArrayInputStream(imageBytes);

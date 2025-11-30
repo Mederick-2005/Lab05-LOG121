@@ -23,6 +23,10 @@ public class CommandeEnregistrerPerspective extends CommandeModele {
         this.cheminFichier = chemin;
     }
 
+    /**
+     * La méthode executer sert à créer un fichier .ser avec FileOuptutStream pour enregistrer l'image et les valeurs
+     * zoom et positions
+     */
     @Override
     public void executer() {
 
@@ -31,6 +35,7 @@ public class CommandeEnregistrerPerspective extends CommandeModele {
                 byte[] imageEnOctets = null;
                 BufferedImage imageSwing = (BufferedImage) imagePrincipale.getImage();
 
+                // Si une image existe
                 if (imageSwing != null) {
                     ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
                     ImageIO.write(imageSwing, "png", byteArray);
@@ -43,6 +48,7 @@ public class CommandeEnregistrerPerspective extends CommandeModele {
 
                     objetSortie.writeObject(imageEnOctets);
 
+                    // Écriture des valeurs requises dans le fichier
                     objetSortie.writeDouble(imagePerspective1.getZoom());
                     objetSortie.writeDouble(imagePerspective1.getDeplacementX());
                     objetSortie.writeDouble(imagePerspective1.getDeplacementY());
@@ -60,7 +66,7 @@ public class CommandeEnregistrerPerspective extends CommandeModele {
             }
         }
 
-
+    // On ne peut pas annuler la commande
     @Override
     public void annuler() {
     }
