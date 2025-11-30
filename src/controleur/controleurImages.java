@@ -63,11 +63,27 @@ public class controleurImages implements ObservateurControleurImage{
      */
     @Override
     public void reactionZoom(double rotationMolette){
-        //création et gestion de la commande
-        CommandePerspective commande = new CommandeZoom(rotationMolette, imageSelec);
-        commande.executer();
-        //ajout de la commande à l'historique du gestionnaire de commandes
-        GestionnaireCommandes instanceGestionnaire = GestionnaireCommandes.getInstance();
-        instanceGestionnaire.ajouterHistorique(commande);
+        //Les conditions servent à éviter un zoom négatif
+        if(imageSelec.getZoom()==0.01 && rotationMolette<=0){
+            //On ne fait rien si on est déjà à la limite du négatif et qu'on veut dézoom
+            return;
+        } else if ((imageSelec.getZoom()+rotationMolette)<=0) {
+            //Si on atteint la limite lors du zoom, on met le zoom à la limite (0,01)
+            //création et gestion de la commande
+            CommandePerspective commande = new CommandeZoom(0.01-imageSelec.getZoom(), imageSelec);
+            commande.executer();
+            //ajout de la commande à l'historique du gestionnaire de commandes
+            GestionnaireCommandes instanceGestionnaire = GestionnaireCommandes.getInstance();
+            instanceGestionnaire.ajouterHistorique(commande);
+        } else {
+            //Sinon le comportement est normal
+            //création et gestion de la commande
+            CommandePerspective commande = new CommandeZoom(rotationMolette, imageSelec);
+            commande.executer();
+            //ajout de la commande à l'historique du gestionnaire de commandes
+            GestionnaireCommandes instanceGestionnaire = GestionnaireCommandes.getInstance();
+            instanceGestionnaire.ajouterHistorique(commande);
+        }
+
     }
 }

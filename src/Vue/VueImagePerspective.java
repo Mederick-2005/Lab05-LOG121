@@ -4,11 +4,14 @@ import Modele.EvenementModele;
 import Modele.ImagePerspective;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class VueImagePerspective extends SujetVueImage implements ObservateurVue{
 
     private ImagePerspective modele;
     private double dernierX, dernierY;
+    private double rotation;
+    private Timer timerRotation;
 
     public VueImagePerspective(ImagePerspective modele) {
         this.modele = modele;
@@ -26,23 +29,31 @@ public class VueImagePerspective extends SujetVueImage implements ObservateurVue
                 dernierX = evt.getX();
                 dernierY = evt.getY();
             }
+
+            @Override
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                double dx  = evt.getX() - dernierX;
+                double dy  = evt.getY() - dernierY;
+
+                notifierMouvement(VueImagePerspective.this, dx, dy);
+            }
         });
 
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-           @Override
-           public void mouseDragged(java.awt.event.MouseEvent evt) {
-               double dx  = evt.getX() - dernierX;
-               double dy  = evt.getY() - dernierY;
+        //Le timer sert à réunir tous les minis mouvement de molettes en une seule commande zoom
+        rotation = 0;
 
-               dernierX = evt.getX();
-               dernierY = evt.getY();
-               notifierMouvement(VueImagePerspective.this, dx, dy);
-           }
-        });
-
-        addMouseWheelListener(e ->  {
-             double rotation = e.getWheelRotation();
+        //Lorsque le timer atteint la limite de temps suite à un mouvement de molette,
+        //il notifie de la rotation totale de la molette
+        timerRotation = new Timer(150, e ->  {
             notifierZoom(rotation);
+            rotation = 0;
+        });
+        timerRotation.setRepeats(false);
+
+        //Lorsqu'on commence à tourner la molette, on ajoute la rotation et on relance le timer
+        addMouseWheelListener(e ->  {
+            rotation = rotation + e.getWheelRotation();
+            timerRotation.restart();
         });
     }
 
