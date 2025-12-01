@@ -9,6 +9,9 @@ import java.io.File;
 
 public class CommandeChargerImage extends CommandeModele{
     public CommandeChargerImage() {
+
+    }
+    public void executer(){
         JFileChooser chooser = new JFileChooser();
         int resultat = chooser.showOpenDialog(null);
 
@@ -25,5 +28,4 @@ public class CommandeChargerImage extends CommandeModele{
             controleurInterface.getModelePerspective2().mouvement(0,0);
         }
     }
-    public void executer(){}
 }

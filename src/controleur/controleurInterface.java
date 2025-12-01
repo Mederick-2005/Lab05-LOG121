@@ -25,7 +25,6 @@ public class controleurInterface implements ObservateurControleurInterface {
     public static ImagePrincipale getModelePrincipale() {
         return modelePrincipale;
     }
-
     public static ImagePerspective getModelePerspective1() {
         return modelePerspective1;
     }
@@ -39,12 +38,11 @@ public class controleurInterface implements ObservateurControleurInterface {
 
         switch (bouton.getText()) {
             case "Charger Image":
-                new CommandeChargerImage();
+                new CommandeChargerImage().executer();
                 break;
 
             case "Sauvegarder":
-                String cheminProjet = System.getProperty("user.dir") + File.separator + "sauvegarde.ser";
-                new CommandeEnregistrerPerspective(modelePrincipale, modelePerspective1, modelePerspective2, cheminProjet).executer();
+                new CommandeEnregistrerPerspective(modelePrincipale, modelePerspective1, modelePerspective2).executer();
                 break;
 
             case "Défaire":
@@ -56,14 +54,7 @@ public class controleurInterface implements ObservateurControleurInterface {
                 break;
 
             case "Charger Perspective":
-                String cheminChargement = System.getProperty("user.dir") + File.separator + "sauvegarde.ser";
-                File fichierALire = new File(cheminChargement);
-
-                if (fichierALire.exists()) {
-                    new CommandeChargerPerspective(fichierALire, modelePrincipale, modelePerspective1, modelePerspective2).executer();
-                } else {
-                    System.out.println("Aucun fichier de sauvegarde trouvé à cet emplacement.");
-                }
+                new CommandeChargerPerspective(modelePrincipale, modelePerspective1, modelePerspective2).executer();
                 break;
         }
     }
