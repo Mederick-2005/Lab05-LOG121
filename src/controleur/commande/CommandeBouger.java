@@ -22,6 +22,7 @@ public class CommandeBouger extends CommandePerspective{
     /**
      * Annulation du déplacement en faisant le déplacement inverse
      */
+    @Override
     public void annuler(){
         double ancienneValeurX = imageSelec.getDeplacementX();
         double ancienneValeurY = imageSelec.getDeplacementY();

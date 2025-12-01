@@ -65,9 +65,4 @@ public class CommandeEnregistrerPerspective extends CommandeModele {
                 System.err.println("Erreur lors de la sauvegarde.");
             }
         }
-
-    // On ne peut pas annuler la commande
-    @Override
-    public void annuler() {
-    }
 }

@@ -13,4 +13,6 @@ public abstract class CommandePerspective extends CommandeModele{
     public ImagePerspective getImageSelec(){
         return imageSelec;
     }
+
+    public abstract void annuler();
 }

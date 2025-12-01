@@ -10,5 +10,4 @@ public abstract class CommandeModele { ;
 
     public abstract void executer();
 
-    public abstract void annuler();
 }

@@ -63,5 +63,4 @@ public class CommandeChargerPerspective extends CommandeModele{
         }
 
     }
-    public void annuler(){}
 }

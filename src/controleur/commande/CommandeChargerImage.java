@@ -26,5 +26,4 @@ public class CommandeChargerImage extends CommandeModele{
         }
     }
     public void executer(){}
-    public void annuler(){}
 }

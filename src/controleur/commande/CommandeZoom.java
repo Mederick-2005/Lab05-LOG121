@@ -21,6 +21,7 @@ public class CommandeZoom extends CommandePerspective{
     /**
      * Annule le zoom en faisant un zoom de la valeur inverse du zoom initial
      */
+    @Override
     public void annuler(){
         double ancienZoom = imageSelec.getZoom();
         imageSelec.setZoom(ancienZoom - niveauZoom);

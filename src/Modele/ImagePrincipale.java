@@ -34,11 +34,6 @@ public class ImagePrincipale extends SujetModele implements Image{
         }
     }
 
-
-    public void restaurer(MementoImage memento){
-
-    }
-
     @Override
     public double getZoom() {
         return zoom;
