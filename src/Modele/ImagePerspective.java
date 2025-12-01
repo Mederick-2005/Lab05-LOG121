@@ -14,6 +14,9 @@ public class ImagePerspective extends SujetModele implements Image{
     private double deplacementX = 0.0;
     private double deplacementY = 0.0;
 
+    /**
+     * Constructeur pour une image perspective
+     */
     public ImagePerspective(){
         this.image = null;
         this.zoom = 1;
@@ -76,6 +79,7 @@ public class ImagePerspective extends SujetModele implements Image{
     }
 
 
+    // Getters pour l'image perspective
     @Override
     public double getZoom() {
         return zoom;
@@ -96,6 +100,7 @@ public class ImagePerspective extends SujetModele implements Image{
         return image;
     }
 
+    //Setters pour l'image perspctive
     public void setImage(java.awt.Image image) {
         this.image = image;
         notifierObservateur(new EvenementModele(TypeEvenement.CHARGER));

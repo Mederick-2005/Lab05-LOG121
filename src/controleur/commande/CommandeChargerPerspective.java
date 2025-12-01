@@ -15,12 +15,21 @@ public class CommandeChargerPerspective extends CommandeModele {
     private ImagePerspective imagePerspective1;
     private ImagePerspective imagePerspective2;
 
+    /**
+     * Constructeur de la commande pour charger une image et ses perspectives dans ceux qui on été sauvegarder
+     * @param ip  Image principale
+     * @param ip1 Image perspective 1
+     * @param ip2 Image perspective 2
+     */
     public CommandeChargerPerspective(ImagePrincipale ip, ImagePerspective ip1, ImagePerspective ip2) {
         this.imagePrincipale = ip;
         this.imagePerspective1 = ip1;
         this.imagePerspective2 = ip2;
     }
 
+    /**
+     * Fonction pour exécuter la commande
+     */
     @Override
     public void executer() {
         File dossierSauvegarde = new File("Sauvegarde");
@@ -34,11 +43,14 @@ public class CommandeChargerPerspective extends CommandeModele {
 
         if (resultat == JFileChooser.APPROVE_OPTION) {
             File fichierSelectionne = fileChooser.getSelectedFile();
-            System.out.println(fichierSelectionne);
             chargerFichier(fichierSelectionne);
         }
     }
 
+    /**
+     * Fonction pour chargé le fichier de sauvegarde choisi par l'utilisateur
+     * @param fichier  Le fichier choisi
+     */
     private void chargerFichier(File fichier) {
         try (FileInputStream fichierEntree = new FileInputStream(fichier);
              ObjectInputStream ObjetEntree = new ObjectInputStream(fichierEntree)) {

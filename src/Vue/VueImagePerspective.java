@@ -13,6 +13,10 @@ public class VueImagePerspective extends SujetVueImage implements ObservateurVue
     private double rotation;
     private Timer timerRotation;
 
+    /**
+     * Constructeur de la vue d'une image perspective
+     * @param modele  Image qui va être dans la vue perspective
+     */
     public VueImagePerspective(ImagePerspective modele) {
         this.modele = modele;
         this.modele.ajouterObservateur(this);
@@ -58,6 +62,10 @@ public class VueImagePerspective extends SujetVueImage implements ObservateurVue
     }
 
 
+    /**
+     * Fonction pour dessiner l'image perspective dans la vue
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -96,11 +104,20 @@ public class VueImagePerspective extends SujetVueImage implements ObservateurVue
     }
 
 
+    /**
+     /**
+     * Mettre à jour les observateurs
+     * @param e  Evenement qui à déclancher la mise a jour
+     */
     @Override
     public void mettreAJour(EvenementModele e) {
         repaint();
     }
 
+    /**
+     * Fonction pour retourner l'image perspective
+     * @return Image perspective à retourner
+     */
     public ImagePerspective getModele() {
         return modele;
     }

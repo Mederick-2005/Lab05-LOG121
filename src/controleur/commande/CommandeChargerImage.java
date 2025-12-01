@@ -8,9 +8,16 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class CommandeChargerImage extends CommandeModele{
+    /**
+     * Constructeur pour la commande charger une image
+     */
     public CommandeChargerImage() {
 
     }
+
+    /**
+     * Fonction qui permet de parcourir les fichiers de l'ordinateur de l'utilisateur pour choisir le fichier à charger
+     */
     public void executer(){
         JFileChooser chooser = new JFileChooser();
         int resultat = chooser.showOpenDialog(null);

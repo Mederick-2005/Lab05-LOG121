@@ -10,6 +10,9 @@ public class GestionnaireMemento {
     private Stack<MementoImage> historique = new Stack<>();
     private static GestionnaireMemento instance;
 
+    /**
+     * Constructeur du gestionnaire de memento
+     */
     private GestionnaireMemento() {
     }
 

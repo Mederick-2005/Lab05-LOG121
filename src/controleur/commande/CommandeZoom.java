@@ -3,19 +3,24 @@ package controleur.commande;
 import Modele.ImagePerspective;
 
 public class CommandeZoom extends CommandePerspective{
-    private double niveauZoom;
+    private double nouveauZoom;
 
-    public CommandeZoom(double niveauZoom, ImagePerspective imageSelec) {
+    /**
+     * Constructeur pour la commande zoom
+     * @param nouveauZoom
+     * @param imageSelec  Image sur laquelle le zoom est effectuer
+     */
+    public CommandeZoom(double nouveauZoom, ImagePerspective imageSelec) {
         super(imageSelec);
-        this.niveauZoom = niveauZoom;
+        this.nouveauZoom = nouveauZoom;
     }
 
     /**
-     * exécute la zoom
+     * exécute le zoom
      */
     public void executer(){
         double ancienZoom = imageSelec.getZoom();
-        imageSelec.setZoom(ancienZoom + niveauZoom);
+        imageSelec.setZoom(ancienZoom + nouveauZoom);
     }
 
     /**
@@ -24,6 +29,6 @@ public class CommandeZoom extends CommandePerspective{
     @Override
     public void annuler(){
         double ancienZoom = imageSelec.getZoom();
-        imageSelec.setZoom(ancienZoom - niveauZoom);
+        imageSelec.setZoom(ancienZoom - nouveauZoom);
     }
 }

@@ -18,6 +18,13 @@ public class VueEntiere extends SujetVueInterface implements ObservateurVue {
     private VueImagePerspective vueImagePerspective1;
     private VueImagePerspective vueImagePerspective2;
 
+
+    /**
+     * Constructeur de la vue complete du projet qui contient les vues de l'image principale est des images perspectives
+     * @param imgPrinc  L'image principale
+     * @param imgPersp1  Première image perspective
+     * @param imgPersp2  Deuxième image perspective
+     */
     public VueEntiere(ImagePrincipale imgPrinc, ImagePerspective imgPersp1, ImagePerspective imgPersp2) {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
@@ -95,19 +102,29 @@ public class VueEntiere extends SujetVueInterface implements ObservateurVue {
         add(labelFooter, BorderLayout.SOUTH);
     }
 
-    public VueImagePrincipale getVueImagePrincipale() {
-        return vueImagePrincipale;
-    }
+    /**
+     * Fonction pour retourner la vue de la première image perspective
+     * @return  retourne la vue de l'image perspective
+     */
     public VueImagePerspective getVueImagePerspective1() {
         return vueImagePerspective1;
     }
+
+    /**
+     * Fonction pour retourner la vue de la deuxième image perspective
+     * @return  retourne la vue de l'image perspective
+     */
     public VueImagePerspective getVueImagePerspective2() {
         return vueImagePerspective2;
     }
 
 
+    /**
+     * Mettre à jour les observateurs
+     * @param e  Evenement qui à déclancher la mise a jour
+     */
     @Override
-    public void mettreAJour(EvenementModele modele) {
+    public void mettreAJour(EvenementModele e) {
         repaint();
     }
 }

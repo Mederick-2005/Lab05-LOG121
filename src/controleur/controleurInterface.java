@@ -15,6 +15,13 @@ public class controleurInterface implements ObservateurControleurInterface {
     private static ImagePerspective modelePerspective1;
     private static ImagePerspective modelePerspective2;
 
+    /**
+     * Constructeur pour le controleur de l'interface et de la gestion des boutons
+     * @param vueEntiere  La vue complete qui contient toutes les autres vues
+     * @param imgPrinc  L'image principale
+     * @param imgPersp1  La première image perspective
+     * @param imgPersp2  La deuxième image perspective
+     */
     public controleurInterface(VueEntiere vueEntiere,ImagePrincipale imgPrinc,ImagePerspective imgPersp1,ImagePerspective imgPersp2) {
         vueEntiere.ajouterObservateur(this);
         this.modelePrincipale = imgPrinc;
@@ -22,6 +29,7 @@ public class controleurInterface implements ObservateurControleurInterface {
         this.modelePerspective2 = imgPersp2;
     }
 
+    //Getter pour les images
     public static ImagePrincipale getModelePrincipale() {
         return modelePrincipale;
     }
@@ -32,6 +40,10 @@ public class controleurInterface implements ObservateurControleurInterface {
         return modelePerspective2;
     }
 
+    /**
+     * Fonction pour effectuer la commande en lien avec le bouton qui a été cliqué
+     * @param bouton  Le bouton qui a été cliqué
+     */
     @Override
     public void reactionClicBouton(JButton bouton) {
         System.out.println("Contrôleur : clic sur " + bouton.getText());

@@ -11,6 +11,14 @@ public class MementoImage {
     private double deplacementY;
     private ImagePerspective imageSource; //perspective sur laquelle la sauvegarde a été faite
 
+    /**
+     * Constructeur pour créer un memento de l'image voulu
+     * @param image  Image à partir de laquelle créer le memento
+     * @param zoom  zoom de l'image
+     * @param deplacementX  déplacement en X de l'image
+     * @param deplacementY  déplacement en Y de l'image
+     * @param imageSource   Image perspective
+     */
     public MementoImage(java.awt.Image image, double zoom, double deplacementX, double deplacementY, ImagePerspective imageSource) {
         this.image = image;
         this.zoom = zoom;
@@ -19,6 +27,7 @@ public class MementoImage {
         this.imageSource = imageSource;
     }
 
+    // Getters
     public java.awt.Image getImage() {
         return image;
     }

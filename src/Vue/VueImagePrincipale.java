@@ -10,6 +10,10 @@ public class VueImagePrincipale extends JPanel implements ObservateurVue {
 
     private ImagePrincipale modele;
 
+    /**
+     * Constructeur pour la vue de l'image principale
+     * @param modele image principale
+     */
     public VueImagePrincipale(ImagePrincipale modele) {
         this.modele = modele;
         this.modele.ajouterObservateur(this);
@@ -18,6 +22,10 @@ public class VueImagePrincipale extends JPanel implements ObservateurVue {
         setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
+    /**
+     * Fonction pour dessiner l'image principale dans la vue
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -56,7 +64,10 @@ public class VueImagePrincipale extends JPanel implements ObservateurVue {
         }
     }
 
-
+    /**
+     * Mettre à jour les observateurs
+     * @param e  Evenement qui à déclancher la mise a jour
+     */
     @Override
     public void mettreAJour(EvenementModele e) {
         repaint();

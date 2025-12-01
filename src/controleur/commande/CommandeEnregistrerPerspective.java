@@ -15,12 +15,21 @@ public class CommandeEnregistrerPerspective extends CommandeModele {
     private ImagePerspective imagePerspective1;
     private ImagePerspective imagePerspective2;
 
+    /**
+     * Constructeur pour une commande de sauvegarde d'une image et des ses perspectives
+     * @param princ  L'image principale
+     * @param p1   Image perspective 1
+     * @param p2   Image perspective 2
+     */
     public CommandeEnregistrerPerspective(ImagePrincipale princ, ImagePerspective p1, ImagePerspective p2) {
         this.imagePrincipale = princ;
         this.imagePerspective1 = p1;
         this.imagePerspective2 = p2;
     }
 
+    /**
+     * Fonction pour exécuter la commande
+     */
     @Override
     public void executer() {
         File dossierSauvegarde = new File("Sauvegarde");
