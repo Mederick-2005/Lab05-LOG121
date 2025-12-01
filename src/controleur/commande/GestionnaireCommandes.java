@@ -34,4 +34,19 @@ public class GestionnaireCommandes {
     public CommandePerspective retirerHistorique(){
         return historique.pop();
     }
+
+    /**
+     * vérifie si l'historique est vide
+     * @return vrai si vide
+     */
+    public boolean estVide(){
+        return historique.isEmpty();
+    }
+
+    /**
+     * vide l'historique du gestionnaire
+     */
+    public void viderHistorique(){
+        historique.clear();
+    }
 }

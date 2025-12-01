@@ -43,4 +43,19 @@ public class GestionnaireMemento {
     public void ajouterHistorique(MementoImage m){
         historique.push(m);
     }
+
+    /**
+     * vérifie si l'historique est vide
+     * @return vrai si vide
+     */
+    public boolean estVide(){
+        return historique.isEmpty();
+    }
+
+    /**
+     * vide l'historique du gestionnaire
+     */
+    public void viderHistorique(){
+        historique.clear();
+    }
 }

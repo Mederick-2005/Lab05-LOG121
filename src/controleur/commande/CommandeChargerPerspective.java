@@ -2,6 +2,7 @@ package controleur.commande;
 
 import Modele.ImagePerspective;
 import Modele.ImagePrincipale;
+import controleur.memento.GestionnaireMemento;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -44,6 +45,9 @@ public class CommandeChargerPerspective extends CommandeModele {
         if (resultat == JFileChooser.APPROVE_OPTION) {
             File fichierSelectionne = fileChooser.getSelectedFile();
             chargerFichier(fichierSelectionne);
+
+            GestionnaireCommandes.getInstance().viderHistorique();
+            GestionnaireMemento.getInstance().viderHistorique();
         }
     }
 

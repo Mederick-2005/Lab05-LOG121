@@ -1,6 +1,7 @@
 package controleur.commande;
 
 import controleur.controleurInterface;
+import controleur.memento.GestionnaireMemento;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -33,6 +34,9 @@ public class CommandeChargerImage extends CommandeModele{
             controleurInterface.getModelePerspective2().chargerImage(file);
             controleurInterface.getModelePerspective2().setZoom(1);
             controleurInterface.getModelePerspective2().mouvement(0,0);
+
+            GestionnaireMemento.getInstance().viderHistorique();
+            GestionnaireCommandes.getInstance().viderHistorique();
         }
     }
 }
